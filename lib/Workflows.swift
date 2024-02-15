@@ -1,10 +1,39 @@
 import Foundation
+let SHIFT = "\u{21E7}"
+let CONTROL = "\u{2303}"
+let COMMAND = "\u{2318}"
+let OPTION = "\u{2325}"
+let FN = "fn"
+
+let MODIFIERS = [
+	131072   : SHIFT,
+	262144   : CONTROL,
+	262401   : CONTROL,
+	393216   : SHIFT+CONTROL,
+	524288   : OPTION,
+	655360   : SHIFT+OPTION,
+	786432   : CONTROL+OPTION,
+	917504   : SHIFT+CONTROL+OPTION,
+	1048576  : COMMAND,
+	1179648  : SHIFT+COMMAND,
+	1310720  : CONTROL+COMMAND,
+	1310985  : CONTROL+COMMAND,
+	1441792  : SHIFT+CONTROL+COMMAND,
+	1572864  : OPTION+COMMAND,
+	1703936  : SHIFT+OPTION+COMMAND,
+	1835008  : CONTROL+OPTION+COMMAND,
+	1966080  : SHIFT+CONTROL+OPTION+COMMAND,
+	8388608  : FN,
+	8519680  : SHIFT,
+	11272192 : CONTROL+OPTION
+]
 
 enum KeywordType: String, CaseIterable {
 	case Keyword = "Keyword"
 	case Snippet = "Snippet"
 	case Action = "Action"
 	case External = "External"
+	case Hotkey = "Hotkey"
 }
 
 struct Keyword {
@@ -110,6 +139,15 @@ class Workflow {
 				self.keywords.append(k)
 			} else if type == "alfred.workflow.trigger.external", let triggerId = config["triggerid"] as? String, !triggerId.isEmpty {
 				self.keywords.append(Keyword(keyword: triggerId, type: .External, id: uid))
+			} else if type == "alfred.workflow.trigger.hotkey", let key = config["hotstring"] as? String, !key.isEmpty {
+				var k = Keyword(keyword: key, type: .Hotkey, id: uid)
+				if let mod = config["hotmod"] as? Int, let modifier = MODIFIERS[mod] {
+					k.keyword = modifier + " " + k.keyword
+				}
+				if let uiData = plist["uidata"] as? [String: Any], let element = uiData[uid] as? [String: Any], let note = element["note"] as? String, !note.isEmpty {
+					k.title = note
+				}
+				self.keywords.append(k)
 			}
 		}
 	}
