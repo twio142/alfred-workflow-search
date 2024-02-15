@@ -14,13 +14,25 @@ func matchString(_ query: String, _ string: String) -> Bool {
 }
 
 class MyOperation: Operation {
-	var result: Workflow?
-	var wfId: String
-	init(_ wfId: String) {
+	var result: [Item] = []
+	let wfId: String
+	let query: String
+	init(_ wfId: String, _ query: String = "") {
 		self.wfId = wfId
+		self.query = query
 	}
 	override func main() {
-		result = Workflow(wfId)
+		let workflow = Workflow(wfId)
+		if workflow.disabled { return }
+		if query.hasPrefix("\(workflow.name)::") {
+			let subQuery = query.replacingOccurrences(of: "\(workflow.name)::", with: "")
+			result += workflow.matchForKeywords(subQuery)
+		} else {
+			result += workflow.matchForWorkflow(query)
+			if !query.isEmpty {
+				result += workflow.matchForKeywords(query)
+			}
+		}
 	}
 }
 
@@ -44,22 +56,14 @@ if CommandLine.arguments.count > 1 {
 		let files = try fileManager.contentsOfDirectory(atPath: wfBase)
 		for file in files {
 			if !file.hasSuffix(".") {
-				let operation = MyOperation(file)
+				let operation = MyOperation(file, query)
 				operationQueue.addOperation(operation)
 			}
 		}
 		operationQueue.operations.forEach {
 			$0.waitUntilFinished()
-			if let workflow = ($0 as? MyOperation)?.result as? Workflow, !workflow.disabled {
-        if query.hasPrefix("\(workflow.name)::") {
-          let subQuery = query.replacingOccurrences(of: "\(workflow.name)::", with: "")
-          items += workflow.matchForKeywords(subQuery)
-        } else {
-          items += workflow.matchForWorkflow(query)
-          if !query.isEmpty {
-            items += workflow.matchForKeywords(query)
-          }
-        }
+			if let result = ($0 as? MyOperation)?.result as? [Item] {
+				items += result
 			}
 		}
 		if items.count == 0 {

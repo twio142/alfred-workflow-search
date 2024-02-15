@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>a</string>
+	<string>com.nyako520.alfred</string>
 	<key>category</key>
 	<string>Tools</string>
 	<key>connections</key>
@@ -147,7 +147,7 @@
 	<key>createdby</key>
 	<string>nyako520</string>
 	<key>description</key>
-	<string></string>
+	<string>Manage Alfred workflows</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -226,7 +226,7 @@ EOB</string>
 				<key>availableviaurlhandler</key>
 				<true/>
 				<key>triggerid</key>
-				<string>a</string>
+				<string>trigger</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.trigger.external</string>
@@ -299,7 +299,7 @@ EOB</string>
 				<key>queuedelayimmediatelyinitially</key>
 				<false/>
 				<key>queuedelaymode</key>
-				<integer>1</integer>
+				<integer>0</integer>
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
@@ -319,11 +319,6 @@ EOB</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
-			<key>inboundconfig</key>
-			<dict>
-				<key>externalid</key>
-				<string>workflow</string>
-			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
@@ -339,7 +334,7 @@ EOB</string>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>v=$(~/bin/jxa -e "Application('System Events').processes['Alfred'].windows[0].textFields[0].value()")
+				<string>v=$(osascript -l JavaScript -e "Application('System Events').processes['Alfred'].windows[0].textFields[0].value()")
 echo -n $v</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>

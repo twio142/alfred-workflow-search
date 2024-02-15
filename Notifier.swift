@@ -56,7 +56,7 @@ func randomString(length: Int) -> String {
 
 func setBundleID(_ appPath: String) {
   let infoPlistPath = URL(fileURLWithPath: appPath).appendingPathComponent("Contents/Info.plist")
-  let bundleId = "com.nyako520.notify." + randomString(length: 9)
+  let bundleId = "com.nyako520.notifier." + randomString(length: 9)
   do {
     let data = try Data(contentsOf: infoPlistPath)
     if var plist = try PropertyListSerialization.propertyList(from: data, options: .mutableContainersAndLeaves, format: nil) as? [String: Any] {
@@ -119,7 +119,8 @@ func setIcon(_ image: String, _ appPath: String) {
 func main() {
   var (image, appName, targetDir) = parseArguments()
   guard let image = image else {
-    print("Usage: notify -i <image> [-n <app name>] [-t <target dir>]")
+    print("Create a notifier app with a custom icon.")
+    print("Usage: Notifier -i <image> [-n <app name>] [-t <target dir>]")
     exit(1)
   }
   targetDir = targetDir ?? URL(fileURLWithPath: image).deletingLastPathComponent().path

@@ -20,13 +20,15 @@ class Workflow {
 	var disabled: Bool = true
 	var name: String = ""
 	var bundleId: String = ""
+	var version: String = ""
+	var description: String = ""
 	var website: String = ""
 	var keywords: [Keyword] = []
 	var wfDir: String {
 		return URL(fileURLWithPath: wfBase).appendingPathComponent(wfId).path
 	}
-	var cacheDir: String = ""
-	var dataDir: String = ""
+	var cacheDir: String? = nil
+	var dataDir: String? = nil
 
 	init(_ wfId: String) {
 		self.wfId = wfId
@@ -45,14 +47,16 @@ class Workflow {
 		self.bundleId = plist["bundleid"] as? String ?? ""
 		if !self.bundleId.isEmpty {
 			self.cacheDir = URL(fileURLWithPath: cacheBase).appendingPathComponent(self.bundleId).path
-			if !fileManager.fileExists(atPath: self.cacheDir) {
-				self.cacheDir = ""
+			if !fileManager.fileExists(atPath: self.cacheDir!) {
+				self.cacheDir = nil
 			}
 			self.dataDir = URL(fileURLWithPath: dataBase).appendingPathComponent(self.bundleId).path
-			if !fileManager.fileExists(atPath: self.dataDir) {
-				self.dataDir = ""
+			if !fileManager.fileExists(atPath: self.dataDir!) {
+				self.dataDir = nil
 			}
 		}
+		self.description = plist["description"] as? String ?? ""
+		self.version = plist["version"] as? String ?? ""
 		self.website = plist["webaddress"] as? String ?? ""
     return plist
 	}
@@ -112,57 +116,28 @@ class Workflow {
 
 	func matchForWorkflow(_ query: String) -> [Item] {
 		if query.split(separator: " ").allSatisfy( { matchString(String($0), name) } ) {
-			var item = Item(
-				title: name,
-				subtitle: self.keywords.map( { $0.keyword } ).joined(separator: " · "),
-				arg: "alfredpreferences:workflows>workflow>\(self.wfId)",
-				uid: self.wfId,
-				autocomplete: self.name + "::",
-				quicklookurl: self.website,
-				icon: Item.Icon(path: "\(self.wfDir)/icon.png" )
-			)
-			item.setMod(.shift, Item.Mod(
-				arg: self.wfDir,
-				subtitle: "Open folder in Alfred",
-				variables: [ "mod": "browse" ]
-			))
-			item.setAction(.file, .string(self.wfDir))
-			if !self.cacheDir.isEmpty {
-				item.setMod(.ctrl, Item.Mod(
-					arg: self.cacheDir,
-					subtitle: "Open cache folder in Alfred",
-					variables: [ "mod": "browse" ]
-				))
-			}
-			if !self.dataDir.isEmpty {
-				item.setMod(.fn, Item.Mod(
-					arg: self.dataDir,
-					subtitle: "Open data folder in Alfred",
-					variables: [ "mod": "browse" ]
-				))
-			}
-			return [item]
+			return [outputWorkflow()]
 		}
 		return []
 	}
 
 	func matchForKeywords(_ query: String) -> [Item] {
+		var query = query
 		var specifiedTypes = [KeywordType]()
-		var query_ = query
 		query.split(separator: " ").forEach { q in
 			KeywordType.allCases.forEach { type in
 				if "[\(type.rawValue.lowercased())]".hasPrefix(q.lowercased()) && !specifiedTypes.contains(type) {
 					specifiedTypes.append(type)
-					query_ = query_.replacingOccurrences(of: q, with: "")
+					query = query.replacingOccurrences(of: q, with: "")
 				}
 			}
 		}
 		if specifiedTypes.count == 0 {
 			specifiedTypes = KeywordType.allCases
 		}
-		query_ = String(query_.split(separator: " ").first ?? "")
+		query = String(query.split(separator: " ").first ?? "")
 		return self.keywords.filter {
-			specifiedTypes.contains($0.type) && matchString(query_, $0.keyword)
+			specifiedTypes.contains($0.type) && matchString(query, $0.keyword)
 		} .map {
 			outputKeyword($0)
 		}
@@ -195,10 +170,9 @@ class Workflow {
 	}
 
 	func outputKeyword(_ k: Keyword) -> Item {
-		let wfDir = URL(fileURLWithPath: wfBase).appendingPathComponent(self.wfId).path
-		var icon = URL(fileURLWithPath: wfDir).appendingPathComponent("\(k.id).png").path
+		var icon = URL(fileURLWithPath: self.wfDir).appendingPathComponent("\(k.id).png").path
 		if !fileManager.fileExists(atPath: icon) {
-			icon = URL(fileURLWithPath: wfDir).appendingPathComponent("icon.png").path
+			icon = URL(fileURLWithPath: self.wfDir).appendingPathComponent("icon.png").path
 		}
 		var item = Item(
 			title: "[\(k.type)] \(k.keyword)",
@@ -208,26 +182,66 @@ class Workflow {
 			icon: Item.Icon(path: icon)
 		)
 		item.setMod(.shift, Item.Mod(
-			arg: wfDir,
+			arg: self.wfDir,
 			subtitle: "Open folder in Alfred",
 			variables: [ "mod": "browse" ]
 		))
-		if k.type == KeywordType.Keyword {
-			item.text = Item.Text(copy: "~/bin/altr -w \(self.bundleId) -t \(k.keyword) -a ")
+		if k.type == KeywordType.External {
+			item.text = Item.Text(copy: "altr -w \(self.bundleId) -t \(k.keyword) -a ")
 		}
 		if !k.script.isEmpty {
 			item.setAction(.file, .string(k.script))
 		}
-		if !self.cacheDir.isEmpty {
+		if let dir = self.cacheDir {
 			item.setMod(.ctrl, Item.Mod(
-				arg: self.cacheDir,
+				arg: dir,
 				subtitle: "Open cache folder in Alfred",
 				variables: [ "mod": "browse" ]
 			))
 		}
-		if !self.dataDir.isEmpty {
+		if let dir = self.dataDir {
 			item.setMod(.fn, Item.Mod(
-				arg: self.dataDir,
+				arg: dir,
+				subtitle: "Open data folder in Alfred",
+				variables: [ "mod": "browse" ]
+			))
+		}
+		return item
+	}
+
+	func outputWorkflow() -> Item {
+		var item = Item(
+			title: self.name,
+			subtitle: self.keywords.map( { $0.keyword } ).joined(separator: " · "),
+			arg: "alfredpreferences:workflows>workflow>\(self.wfId)",
+			uid: self.wfId,
+			autocomplete: self.name + "::",
+			quicklookurl: self.website,
+			icon: Item.Icon(path: "\(self.wfDir)/icon.png" )
+		)
+		if !self.version.isEmpty || !self.description.isEmpty {
+			let subtitle = [self.version, self.description].filter( { !$0.isEmpty } ).joined(separator: "  |  ")
+			item.setMod(.cmd, Item.Mod(
+				valid: false,
+				subtitle: subtitle
+			))
+		}
+		item.setMod(.shift, Item.Mod(
+			arg: self.wfDir,
+			subtitle: "Open folder in Alfred",
+			variables: [ "mod": "browse" ]
+		))
+		item.setAction(.file, .string(self.wfDir))
+		if let dir = self.cacheDir {
+			item.setMod(.ctrl, Item.Mod(
+				arg: dir,
+				subtitle: "Open cache folder in Alfred",
+				variables: [ "mod": "browse" ]
+			))
+		}
+		if let dir = self.dataDir {
+			item.setMod(.fn, Item.Mod(
+				arg: dir,
 				subtitle: "Open data folder in Alfred",
 				variables: [ "mod": "browse" ]
 			))
