@@ -12,14 +12,28 @@ struct AlfredWorkflow: Encodable {
         let externaltriggerid: String
     }
     let config: Config
-    let arg: String
+    let arg: Arg?
     let variables: [String: String]
+}
+
+enum Arg: Encodable {
+    case single(String)
+    case array([String])
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .single(let value):
+            try container.encode(value)
+        case .array(let values):
+            try container.encode(values)
+        }
+    }
 }
 
 func parseArguments() -> AlfredWorkflow? {
     var workflow: String?
     var trigger: String?
-    var arg: String?
+    var arg: Arg?
     var variables: [String: String] = [:]
 
     var index = 1
@@ -34,8 +48,13 @@ func parseArguments() -> AlfredWorkflow? {
             trigger = CommandLine.arguments[safe: index + 1]
             index += 2
         case "-a", "--arg":
-            arg = CommandLine.arguments[safe: index + 1]
-            index += 2
+            if CommandLine.arguments[safe: index + 1] == "-" && CommandLine.arguments[safe: index + 2] != nil {
+                arg = .array(Array(CommandLine.arguments[(index + 2)...]))
+                index = CommandLine.arguments.count
+            } else if let a = CommandLine.arguments[safe: index + 1] {
+                arg = .single(a)
+                index += 2
+            }
         case "-v", "--var":
             if let range = CommandLine.arguments[safe: index + 1]?.range(of: "="), range.lowerBound > CommandLine.arguments[index + 1].startIndex {
                 let key = CommandLine.arguments[index + 1][..<range.lowerBound]
@@ -53,7 +72,7 @@ func parseArguments() -> AlfredWorkflow? {
     if let workflow = workflow, let trigger = trigger {
         return AlfredWorkflow(
             config: AlfredWorkflow.Config(workflowbundleid: workflow, externaltriggerid: trigger),
-            arg: arg ?? "",
+            arg: arg,
             variables: variables
         )
     }
