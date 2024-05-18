@@ -38,6 +38,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>51EE6DC1-A135-42F7-9DBF-2FADB9D10644</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F199EB6C-ED07-4276-842A-4F49B57CEDB2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>690834CC-416D-4AC9-A188-D3BDA28CD58E</key>
 		<array>
 			<dict>
@@ -280,79 +293,6 @@ EOB</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>2</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<false/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>w/</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Loading...</string>
-				<key>script</key>
-				<string>./Workflows "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>List workflows</string>
-				<key>title</key>
-				<string>Workflows</string>
-				<key>type</key>
-				<integer>5</integer>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>D184C2BA-0D1A-4ED2-91AE-A8DE04E2EDB9</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>v=$(osascript -l JavaScript -e "Application('System Events').processes['Alfred'].windows[0].textFields[0].value()")
-echo -n $v</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>6EEF71A4-9BB9-4283-A0D2-F3FB70793B62</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -384,6 +324,80 @@ echo -n $v</string>
 			<string>C3DF9BD6-2538-4609-80FA-514315D3579C</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>v=$(osascript -l JavaScript -e "Application('System Events').processes['Alfred'].windows[0].textFields[0].value()")
+echo -n $v</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>6EEF71A4-9BB9-4283-A0D2-F3FB70793B62</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>w/</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>[ -f ./Workflows ] || swiftc src/*.swift -o ./Workflows
+./Workflows "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>List workflows</string>
+				<key>title</key>
+				<string>Workflows</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D184C2BA-0D1A-4ED2-91AE-A8DE04E2EDB9</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -441,6 +455,23 @@ echo -n $v</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>addfilestobuffer</key>
+				<false/>
+				<key>clearbuffer</key>
+				<true/>
+				<key>outputtype</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.buffer</string>
+			<key>uid</key>
+			<string>690834CC-416D-4AC9-A188-D3BDA28CD58E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -472,23 +503,6 @@ echo -n $v</string>
 			<string>BAE5D08E-6FDA-4A61-975B-B7A8621A2D89</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>addfilestobuffer</key>
-				<false/>
-				<key>clearbuffer</key>
-				<true/>
-				<key>outputtype</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.buffer</string>
-			<key>uid</key>
-			<string>690834CC-416D-4AC9-A188-D3BDA28CD58E</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -583,6 +597,11 @@ echo -n $v</string>
 			<integer>1</integer>
 		</dict>
 		<dict>
+			<key>config</key>
+			<dict>
+				<key>unstackview</key>
+				<false/>
+			</dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.hidealfred</string>
 			<key>uid</key>
@@ -593,21 +612,15 @@ echo -n $v</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>|not</string>
-				<key>subtext</key>
-				<string>With icon: {query}</string>
-				<key>text</key>
-				<string>Install Notifier</string>
-				<key>withspace</key>
+				<key>availableviaurlhandler</key>
 				<true/>
+				<key>triggerid</key>
+				<string>show</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.trigger.external</string>
 			<key>uid</key>
-			<string>333FA357-4204-436E-B6E4-E610FD0AE977</string>
+			<string>51EE6DC1-A135-42F7-9DBF-2FADB9D10644</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -633,6 +646,42 @@ echo -n $v</string>
 			<string>D7EDBB93-F3C3-44FA-919A-43FF88BEDDF7</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>|not</string>
+				<key>subtext</key>
+				<string>With icon: {query}</string>
+				<key>text</key>
+				<string>Install Notifier</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>333FA357-4204-436E-B6E4-E610FD0AE977</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>leftcursor</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.showalfred</string>
+			<key>uid</key>
+			<string>F199EB6C-ED07-4276-842A-4F49B57CEDB2</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -673,6 +722,13 @@ echo -n $v</string>
 			<real>280</real>
 			<key>ypos</key>
 			<real>70</real>
+		</dict>
+		<key>51EE6DC1-A135-42F7-9DBF-2FADB9D10644</key>
+		<dict>
+			<key>xpos</key>
+			<real>280</real>
+			<key>ypos</key>
+			<real>510</real>
 		</dict>
 		<key>690834CC-416D-4AC9-A188-D3BDA28CD58E</key>
 		<dict>
@@ -763,6 +819,13 @@ echo -n $v</string>
 			<real>155</real>
 			<key>ypos</key>
 			<real>70</real>
+		</dict>
+		<key>F199EB6C-ED07-4276-842A-4F49B57CEDB2</key>
+		<dict>
+			<key>xpos</key>
+			<real>405</real>
+			<key>ypos</key>
+			<real>540</real>
 		</dict>
 		<key>FBD44F2A-89B4-454F-B5AD-0042D105B375</key>
 		<dict>

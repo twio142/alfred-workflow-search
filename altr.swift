@@ -91,7 +91,7 @@ func formatJSONString(_ config: AlfredWorkflow) -> String {
 
 func openAlfredURL(_ jsonString: String) {
     var allowedCharacters = CharacterSet.urlQueryAllowed
-    allowedCharacters.remove(charactersIn: "&")
+    allowedCharacters.remove(charactersIn: "&+")
     let encodedJsonString = jsonString.addingPercentEncoding(withAllowedCharacters: allowedCharacters) ?? ""
     let url = "alfred://runtrigger/com.nyako520.alfred/trigger/?argument=\(encodedJsonString)"
     let process = Process()
