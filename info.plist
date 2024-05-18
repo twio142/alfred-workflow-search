@@ -3,72 +3,29 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.nyako520.alfred</string>
+	<string>com.twio142.alfred-workflows</string>
 	<key>category</key>
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
-		<key>04DF3D7A-9E4E-4232-9F95-C0F60D01CCED</key>
-		<array/>
-		<key>333FA357-4204-436E-B6E4-E610FD0AE977</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>D7EDBB93-F3C3-44FA-919A-43FF88BEDDF7</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>3404A005-6D2B-4F3D-B1A1-A4D1556013A8</key>
-		<array/>
-		<key>444ACFBF-9160-44A6-9FAC-016AD8B949A7</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>867D0851-CD8C-474B-8459-2F88CD466D1E</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>51EE6DC1-A135-42F7-9DBF-2FADB9D10644</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>F199EB6C-ED07-4276-842A-4F49B57CEDB2</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>690834CC-416D-4AC9-A188-D3BDA28CD58E</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>04DF3D7A-9E4E-4232-9F95-C0F60D01CCED</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>6EEF71A4-9BB9-4283-A0D2-F3FB70793B62</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>D184C2BA-0D1A-4ED2-91AE-A8DE04E2EDB9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>76AF516E-396A-4FC5-8ACC-C4A20D5FF6B7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B2B3F772-8375-474E-A8C0-68722F7B0221</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -94,19 +51,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>E0BD3526-BBB2-463E-BBCA-18CD8BEB1A30</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>BAE5D08E-6FDA-4A61-975B-B7A8621A2D89</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>690834CC-416D-4AC9-A188-D3BDA28CD58E</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -141,6 +85,19 @@
 				<true/>
 			</dict>
 		</array>
+		<key>D81ED50C-856D-439B-849E-DAFC057C34C7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>76AF516E-396A-4FC5-8ACC-C4A20D5FF6B7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>E0BD3526-BBB2-463E-BBCA-18CD8BEB1A30</key>
 		<array/>
 		<key>ED9D44D7-C54C-44FF-910E-8D8478FBB72A</key>
@@ -158,115 +115,15 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>nyako520</string>
+	<string>twio142</string>
 	<key>description</key>
-	<string>Manage Alfred workflows</string>
+	<string>Search for Alfred workflows by their name, keywords, and so on.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Alfred</string>
+	<string>Alfred Workflow Search</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>a</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>alf='lfred 5'
-[[ $alf =~ "^{query}" || "{query}" = 5 ]] || exit 0
-
-cat &lt;&lt; EOB
-{"items": [
-	{
-		"type": "file",
-		"title": "Alfred 5.app",
-		"subtitle": "/Applications/Alfred 5.app",
-		"autocomplete": "$alf",
-		"arg": "/Applications/Alfred 5.app",
-		"icon": {
-			"type": "fileicon",
-			"path": "/Applications/Alfred 5.app"
-		}
-	}
-]}
-EOB</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>/Applications/Alfred 5.app</string>
-				<key>title</key>
-				<string>Alfred 5</string>
-				<key>type</key>
-				<integer>5</integer>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>3404A005-6D2B-4F3D-B1A1-A4D1556013A8</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>availableviaurlhandler</key>
-				<true/>
-				<key>triggerid</key>
-				<string>trigger</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.external</string>
-			<key>uid</key>
-			<string>ED9D44D7-C54C-44FF-910E-8D8478FBB72A</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>externaltriggerid</key>
-				<string></string>
-				<key>passinputasargument</key>
-				<true/>
-				<key>passvariables</key>
-				<true/>
-				<key>workflowbundleid</key>
-				<string></string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
-			<key>uid</key>
-			<string>4EEFE371-738A-43AA-B624-920C34A3FB41</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -289,6 +146,30 @@ EOB</string>
 			<string>FBD44F2A-89B4-454F-B5AD-0042D105B375</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>v=$(osascript -l JavaScript -e "Application('System Events').processes['Alfred'].windows[0].textFields[0].value()")
+echo -n $v</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>6EEF71A4-9BB9-4283-A0D2-F3FB70793B62</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -322,30 +203,6 @@ EOB</string>
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
 			<string>C3DF9BD6-2538-4609-80FA-514315D3579C</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>v=$(osascript -l JavaScript -e "Application('System Events').processes['Alfred'].windows[0].textFields[0].value()")
-echo -n $v</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>6EEF71A4-9BB9-4283-A0D2-F3FB70793B62</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -455,172 +312,55 @@ echo -n $v</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>addfilestobuffer</key>
-				<false/>
-				<key>clearbuffer</key>
-				<true/>
-				<key>outputtype</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.buffer</string>
-			<key>uid</key>
-			<string>690834CC-416D-4AC9-A188-D3BDA28CD58E</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>31</integer>
-				<key>hotmod</key>
-				<integer>524288</integer>
-				<key>hotstring</key>
-				<string>O</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedApps</key>
-				<array>
-					<string>com.runningwithcrayons.Alfred</string>
-				</array>
-				<key>relatedAppsMode</key>
-				<integer>1</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>BAE5D08E-6FDA-4A61-975B-B7A8621A2D89</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>openwith</key>
-				<string></string>
-				<key>sourcefile</key>
-				<string></string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openfile</string>
-			<key>uid</key>
-			<string>04DF3D7A-9E4E-4232-9F95-C0F60D01CCED</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>1</integer>
-				<key>argument</key>
-				<integer>1</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>26</integer>
-				<key>hotmod</key>
-				<integer>1441792</integer>
-				<key>hotstring</key>
-				<string>7</string>
-				<key>leftcursor</key>
-				<true/>
-				<key>modsmode</key>
-				<integer>2</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>C0FFC64E-E8C0-4CD2-BEE3-DDE914C55B4B</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>1</integer>
-				<key>argument</key>
-				<integer>2</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>28</integer>
-				<key>hotmod</key>
-				<integer>1441792</integer>
-				<key>hotstring</key>
-				<string>8</string>
-				<key>leftcursor</key>
-				<true/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>7A2C904E-5963-41D4-9ED7-AE3D8CB65190</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>availableviaurlhandler</key>
 				<true/>
 				<key>triggerid</key>
-				<string>hide</string>
+				<string>trigger</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.trigger.external</string>
 			<key>uid</key>
-			<string>444ACFBF-9160-44A6-9FAC-016AD8B949A7</string>
+			<string>ED9D44D7-C54C-44FF-910E-8D8478FBB72A</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>unstackview</key>
+				<key>externaltriggerid</key>
+				<string></string>
+				<key>passinputasargument</key>
+				<true/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>4EEFE371-738A-43AA-B624-920C34A3FB41</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>|altr</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Install Command Line Tool 'altr'</string>
+				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.hidealfred</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>867D0851-CD8C-474B-8459-2F88CD466D1E</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>availableviaurlhandler</key>
-				<true/>
-				<key>triggerid</key>
-				<string>show</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.external</string>
-			<key>uid</key>
-			<string>51EE6DC1-A135-42F7-9DBF-2FADB9D10644</string>
+			<string>D81ED50C-856D-439B-849E-DAFC057C34C7</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -632,110 +372,94 @@ echo -n $v</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./Notifier -i $1</string>
+				<string>[ -f ./altr ] || { swiftc ./altr.swift || exit 1; }
+realpath /usr/local/bin/altr &amp;&amp; {echo -n 'altr already installed!'; exit 0}
+osascript -e 'tell application "Terminal" to do script "sudo ln -s '$PWD/altr' /usr/local/bin/"'</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
-				<integer>5</integer>
+				<integer>11</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>D7EDBB93-F3C3-44FA-919A-43FF88BEDDF7</string>
+			<string>76AF516E-396A-4FC5-8ACC-C4A20D5FF6B7</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>|not</string>
-				<key>subtext</key>
-				<string>With icon: {query}</string>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
 				<key>text</key>
-				<string>Install Notifier</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>333FA357-4204-436E-B6E4-E610FD0AE977</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
 				<string></string>
-				<key>leftcursor</key>
-				<true/>
+				<key>title</key>
+				<string></string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.showalfred</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>F199EB6C-ED07-4276-842A-4F49B57CEDB2</string>
+			<string>B2B3F772-8375-474E-A8C0-68722F7B0221</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string># Alfred Workflow Search
+
+This workflow allows you to search for your installed Alfred workflows by their name, all kinds of keywords and hotkeys.
+
+It's super fast and doesn't rely on cache.
+
+When there's a match for a workflow's name, you can list all of its keywords by pressing `⇥`.
+
+You can also search for a specific type of keyword:
+
+    - Keyword
+    - Snippet
+    - Action (file action or universal action)
+    - External
+    - Hotkeys
+
+## Action on results
+
+- Press `↵` to open the workflow / element in Alfred.
+- Press `→` to browse the workflow's directory in Alfred.
+- Press `⌃ ↵` to browse the workflow's cache directory in Alfred.
+- Press `fn ↵` to browse the workflow's data directory in Alfred.
+- On external triggers, press `⌘ C` to copy its `altr` command.
+- If a script filter keyword is bound with an external script, you can access it in the result's action menu.
+
+## `altr` The command line tool
+
+This workflow comes with a command line tool `altr` that allows you to call any alfred external trigger in your terminal.
+
+Passing variables into the trigger is also supported.
+
+### Usage
+
+```bash
+altr -w &lt;workflow_id&gt; -t &lt;trigger_id&gt; [-a argument] [-v key=value]...
+
+# you can also pass multiple arguments as an array (if your trigger supports it)
+# put `-a` in the end, followed by a `-` and then the arguments
+altr -w &lt;workflow_id&gt; -t &lt;trigger_id&gt; [-v key=value]... -a - [multiple arguments...]
+```</string>
 	<key>uidata</key>
 	<dict>
-		<key>04DF3D7A-9E4E-4232-9F95-C0F60D01CCED</key>
-		<dict>
-			<key>xpos</key>
-			<real>280</real>
-			<key>ypos</key>
-			<real>280</real>
-		</dict>
-		<key>333FA357-4204-436E-B6E4-E610FD0AE977</key>
-		<dict>
-			<key>xpos</key>
-			<real>30</real>
-			<key>ypos</key>
-			<real>510</real>
-		</dict>
-		<key>3404A005-6D2B-4F3D-B1A1-A4D1556013A8</key>
-		<dict>
-			<key>xpos</key>
-			<real>30</real>
-			<key>ypos</key>
-			<real>70</real>
-		</dict>
-		<key>444ACFBF-9160-44A6-9FAC-016AD8B949A7</key>
-		<dict>
-			<key>xpos</key>
-			<real>280</real>
-			<key>ypos</key>
-			<real>385</real>
-		</dict>
 		<key>4EEFE371-738A-43AA-B624-920C34A3FB41</key>
-		<dict>
-			<key>xpos</key>
-			<real>280</real>
-			<key>ypos</key>
-			<real>70</real>
-		</dict>
-		<key>51EE6DC1-A135-42F7-9DBF-2FADB9D10644</key>
-		<dict>
-			<key>xpos</key>
-			<real>280</real>
-			<key>ypos</key>
-			<real>510</real>
-		</dict>
-		<key>690834CC-416D-4AC9-A188-D3BDA28CD58E</key>
 		<dict>
 			<key>xpos</key>
 			<real>155</real>
 			<key>ypos</key>
-			<real>280</real>
+			<real>310</real>
 		</dict>
 		<key>6EEF71A4-9BB9-4283-A0D2-F3FB70793B62</key>
 		<dict>
@@ -744,21 +468,12 @@ echo -n $v</string>
 			<key>ypos</key>
 			<real>175</real>
 		</dict>
-		<key>7A2C904E-5963-41D4-9ED7-AE3D8CB65190</key>
-		<dict>
-			<key>note</key>
-			<string>Lft⌥ ⌘ ⌘</string>
-			<key>xpos</key>
-			<real>30</real>
-			<key>ypos</key>
-			<real>385</real>
-		</dict>
-		<key>867D0851-CD8C-474B-8459-2F88CD466D1E</key>
+		<key>76AF516E-396A-4FC5-8ACC-C4A20D5FF6B7</key>
 		<dict>
 			<key>xpos</key>
-			<real>405</real>
+			<real>155</real>
 			<key>ypos</key>
-			<real>415</real>
+			<real>450</real>
 		</dict>
 		<key>8E5C0F58-4412-42CA-9FD7-D558E00ED913</key>
 		<dict>
@@ -767,21 +482,12 @@ echo -n $v</string>
 			<key>ypos</key>
 			<real>195</real>
 		</dict>
-		<key>BAE5D08E-6FDA-4A61-975B-B7A8621A2D89</key>
+		<key>B2B3F772-8375-474E-A8C0-68722F7B0221</key>
 		<dict>
 			<key>xpos</key>
-			<real>30</real>
-			<key>ypos</key>
 			<real>280</real>
-		</dict>
-		<key>C0FFC64E-E8C0-4CD2-BEE3-DDE914C55B4B</key>
-		<dict>
-			<key>note</key>
-			<string>Rgt⌥ ⌘ ⌘</string>
-			<key>xpos</key>
-			<real>155</real>
 			<key>ypos</key>
-			<real>385</real>
+			<real>450</real>
 		</dict>
 		<key>C3DF9BD6-2538-4609-80FA-514315D3579C</key>
 		<dict>
@@ -797,14 +503,14 @@ echo -n $v</string>
 			<key>ypos</key>
 			<real>175</real>
 		</dict>
-		<key>D7EDBB93-F3C3-44FA-919A-43FF88BEDDF7</key>
+		<key>D81ED50C-856D-439B-849E-DAFC057C34C7</key>
 		<dict>
 			<key>note</key>
-			<string>install notifier</string>
+			<string>install altr</string>
 			<key>xpos</key>
-			<real>155</real>
+			<real>30</real>
 			<key>ypos</key>
-			<real>510</real>
+			<real>450</real>
 		</dict>
 		<key>E0BD3526-BBB2-463E-BBCA-18CD8BEB1A30</key>
 		<dict>
@@ -815,17 +521,12 @@ echo -n $v</string>
 		</dict>
 		<key>ED9D44D7-C54C-44FF-910E-8D8478FBB72A</key>
 		<dict>
+			<key>note</key>
+			<string>run alfred trigger in command line</string>
 			<key>xpos</key>
-			<real>155</real>
+			<real>30</real>
 			<key>ypos</key>
-			<real>70</real>
-		</dict>
-		<key>F199EB6C-ED07-4276-842A-4F49B57CEDB2</key>
-		<dict>
-			<key>xpos</key>
-			<real>405</real>
-			<key>ypos</key>
-			<real>540</real>
+			<real>310</real>
 		</dict>
 		<key>FBD44F2A-89B4-454F-B5AD-0042D105B375</key>
 		<dict>
@@ -836,10 +537,32 @@ echo -n $v</string>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
-	<array/>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>w/</string>
+				<key>placeholder</key>
+				<string>w/</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>The keyword of this workflow</string>
+			<key>label</key>
+			<string>Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword</string>
+		</dict>
+	</array>
 	<key>version</key>
 	<string>1.0</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/twio142/alfred-workflows</string>
 </dict>
 </plist>

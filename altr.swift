@@ -93,7 +93,7 @@ func openAlfredURL(_ jsonString: String) {
     var allowedCharacters = CharacterSet.urlQueryAllowed
     allowedCharacters.remove(charactersIn: "&+")
     let encodedJsonString = jsonString.addingPercentEncoding(withAllowedCharacters: allowedCharacters) ?? ""
-    let url = "alfred://runtrigger/com.nyako520.alfred/trigger/?argument=\(encodedJsonString)"
+    let url = "alfred://runtrigger/com.twio142.alfred-workflows/trigger/?argument=\(encodedJsonString)"
     let process = Process()
     process.launchPath = "/usr/bin/open"
     process.arguments = ["-g", url]
