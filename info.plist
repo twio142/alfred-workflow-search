@@ -38,6 +38,18 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>6D8E79EB-BA86-4AC7-B602-959FBCF539C2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>63F5C50B-7888-435F-9B7B-C7E52BC627F5</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>FBD44F2A-89B4-454F-B5AD-0042D105B375</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -129,21 +141,11 @@
 			<dict>
 				<key>path</key>
 				<string></string>
-				<key>sortBy</key>
-				<integer>0</integer>
-				<key>sortDirection</key>
-				<integer>0</integer>
-				<key>sortFoldersAtTop</key>
-				<false/>
-				<key>sortOverride</key>
-				<false/>
-				<key>stackBrowserView</key>
-				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.browseinalfred</string>
+			<string>alfred.workflow.action.revealfile</string>
 			<key>uid</key>
-			<string>FBD44F2A-89B4-454F-B5AD-0042D105B375</string>
+			<string>6D8E79EB-BA86-4AC7-B602-959FBCF539C2</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -222,7 +224,7 @@ echo -n $v</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>w/</string>
+				<string>{var:keyword}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -259,8 +261,45 @@ echo -n $v</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>path</key>
+				<string></string>
+				<key>sortBy</key>
+				<integer>0</integer>
+				<key>sortDirection</key>
+				<integer>0</integer>
+				<key>sortFoldersAtTop</key>
+				<false/>
+				<key>sortOverride</key>
+				<false/>
+				<key>stackBrowserView</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.browseinalfred</string>
+			<key>uid</key>
+			<string>FBD44F2A-89B4-454F-B5AD-0042D105B375</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>conditions</key>
 				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>finder</string>
+						<key>outputlabel</key>
+						<string>f</string>
+						<key>uid</key>
+						<string>63F5C50B-7888-435F-9B7B-C7E52BC627F5</string>
+					</dict>
 					<dict>
 						<key>inputstring</key>
 						<string>{var:mod}</string>
@@ -426,11 +465,10 @@ You can search for a specific type of keyword with the type surrounded by square
 - External
 - Hotkey
 
-![](./preview.gif)
-
 ## Action on results
 
 - Press `↵` to open the workflow / node in Alfred.
+- Press `⌘ ↵` to open the workflow directory in Finder.
 - Press `⇧ ↵` to browse the workflow directory in Alfred.
 - Press `⌃ ↵` to browse the workflow's cache directory in Alfred.
 - Press `fn ↵` to browse the workflow's data directory in Alfred.
@@ -461,6 +499,13 @@ altr -w &lt;workflow_id&gt; -t &lt;trigger_id&gt; [-v key=value]… -a - [multip
 			<real>155</real>
 			<key>ypos</key>
 			<real>310</real>
+		</dict>
+		<key>6D8E79EB-BA86-4AC7-B602-959FBCF539C2</key>
+		<dict>
+			<key>xpos</key>
+			<real>440</real>
+			<key>ypos</key>
+			<real>160</real>
 		</dict>
 		<key>6EEF71A4-9BB9-4283-A0D2-F3FB70793B62</key>
 		<dict>
@@ -516,9 +561,9 @@ altr -w &lt;workflow_id&gt; -t &lt;trigger_id&gt; [-v key=value]… -a - [multip
 		<key>E0BD3526-BBB2-463E-BBCA-18CD8BEB1A30</key>
 		<dict>
 			<key>xpos</key>
-			<real>480</real>
+			<real>690</real>
 			<key>ypos</key>
-			<real>225</real>
+			<real>220</real>
 		</dict>
 		<key>ED9D44D7-C54C-44FF-910E-8D8478FBB72A</key>
 		<dict>
@@ -532,9 +577,9 @@ altr -w &lt;workflow_id&gt; -t &lt;trigger_id&gt; [-v key=value]… -a - [multip
 		<key>FBD44F2A-89B4-454F-B5AD-0042D105B375</key>
 		<dict>
 			<key>xpos</key>
-			<real>480</real>
+			<real>565</real>
 			<key>ypos</key>
-			<real>120</real>
+			<real>190</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>

@@ -251,20 +251,18 @@ class Workflow {
 	func outputWorkflow() -> Item {
 		var item = Item(
 			title: self.name,
-			subtitle: self.keywords.map( { $0.keyword } ).joined(separator: " · "),
+			subtitle: [self.version, self.description].filter( { !$0.isEmpty } ).joined(separator: "  |  "),
 			arg: "alfredpreferences:workflows>workflow>\(self.wfId)",
 			uid: self.wfId,
 			autocomplete: self.name + "::",
 			quicklookurl: self.website,
 			icon: Item.Icon(path: "\(self.wfDir)/icon.png" )
 		)
-		if !self.version.isEmpty || !self.description.isEmpty {
-			let subtitle = [self.version, self.description].filter( { !$0.isEmpty } ).joined(separator: "  |  ")
-			item.setMod(.cmd, Item.Mod(
-				valid: false,
-				subtitle: subtitle
-			))
-		}
+		item.setMod(.cmd, Item.Mod(
+			subtitle: "Open workflow in Finder",
+			arg: self.wfDir,
+			variables: [ "mod": "finder" ]
+		))
 		item.setMod(.shift, Item.Mod(
 			arg: self.wfDir,
 			subtitle: "Open folder in Alfred",

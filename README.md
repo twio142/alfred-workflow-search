@@ -12,11 +12,12 @@ You can search for a specific type of keyword with the type surrounded by square
 - External
 - Hotkey
 
-![preview](./preview.gif)
+![preview](preview.gif)
 
 ## Action on results
 
 - Press `↵` to open the workflow / node in Alfred.
+- Press `⌘ ↵` to open the workflow directory in Finder.
 - Press `⇧ ↵` to browse the workflow directory in Alfred.
 - Press `⌃ ↵` to browse the workflow's cache directory in Alfred.
 - Press `fn ↵` to browse the workflow's data directory in Alfred.
