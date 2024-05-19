@@ -150,30 +150,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>v=$(osascript -l JavaScript -e "Application('System Events').processes['Alfred'].windows[0].textFields[0].value()")
-echo -n $v</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>6EEF71A4-9BB9-4283-A0D2-F3FB70793B62</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -203,6 +179,30 @@ echo -n $v</string>
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
 			<string>C3DF9BD6-2538-4609-80FA-514315D3579C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>v=$(osascript -l JavaScript -e "Application('System Events').processes['Alfred'].windows[0].textFields[0].value()")
+echo -n $v</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>6EEF71A4-9BB9-4283-A0D2-F3FB70793B62</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -346,21 +346,21 @@ echo -n $v</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>|altr</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Install Command Line Tool 'altr'</string>
-				<key>withspace</key>
+				<key>lastpathcomponent</key>
 				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>D81ED50C-856D-439B-849E-DAFC057C34C7</string>
+			<string>B2B3F772-8375-474E-A8C0-68722F7B0221</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -392,21 +392,21 @@ osascript -e 'tell application "Terminal" to do script "sudo ln -s '$PWD/altr' /
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>removeextension</key>
-				<false/>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>|altr</string>
+				<key>subtext</key>
+				<string></string>
 				<key>text</key>
-				<string></string>
-				<key>title</key>
-				<string></string>
+				<string>Install Command Line Tool 'altr'</string>
+				<key>withspace</key>
+				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>B2B3F772-8375-474E-A8C0-68722F7B0221</string>
+			<string>D81ED50C-856D-439B-849E-DAFC057C34C7</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -418,39 +418,40 @@ This workflow allows you to search for your installed Alfred workflows by their 
 
 It's super fast and doesn't rely on cache.
 
-When there's a match for a workflow's name, you can list all of its keywords by pressing `⇥`.
+You can search for a specific type of keyword with the type surrounded by square brackets (i.e. `[snippet] query`):
 
-You can also search for a specific type of keyword:
+- Keyword
+- Snippet
+- Action (file action or universal action)
+- External
+- Hotkey
 
-    - Keyword
-    - Snippet
-    - Action (file action or universal action)
-    - External
-    - Hotkeys
+![](./preview.gif)
 
 ## Action on results
 
-- Press `↵` to open the workflow / element in Alfred.
-- Press `→` to browse the workflow's directory in Alfred.
+- Press `↵` to open the workflow / node in Alfred.
+- Press `⇧ ↵` to browse the workflow directory in Alfred.
 - Press `⌃ ↵` to browse the workflow's cache directory in Alfred.
 - Press `fn ↵` to browse the workflow's data directory in Alfred.
-- On external triggers, press `⌘ C` to copy its `altr` command.
-- If a script filter keyword is bound with an external script, you can access it in the result's action menu.
+- On a workflow matched, press `⇥` to list all of its keywords, press ` ⌘ ` to see its version and description, and access the workflow directory in the result’s action menu.
+- On an external trigger, press `⌘ C` to copy its `altr` command.
+- On a keyword bound to an external script, you can press `→` to browse the workflow's directory in Alfred, and access the script file in the result's action menu.
 
 ## `altr` The command line tool
 
-This workflow comes with a command line tool `altr` that allows you to call any alfred external trigger in your terminal.
+This workflow comes with a command line tool `altr` that allows you to call any Alfred external trigger in your terminal.
 
-Passing variables into the trigger is also supported.
+Compared to Alfred’s AppleScript solution, it’s simpler, more straightforward, probably faster, and supports passing variables into the trigger.
 
 ### Usage
 
 ```bash
-altr -w &lt;workflow_id&gt; -t &lt;trigger_id&gt; [-a argument] [-v key=value]...
+altr -w &lt;workflow_id&gt; -t &lt;trigger_id&gt; [-a argument] [-v key=value]…
 
 # you can also pass multiple arguments as an array (if your trigger supports it)
-# put `-a` in the end, followed by a `-` and then the arguments
-altr -w &lt;workflow_id&gt; -t &lt;trigger_id&gt; [-v key=value]... -a - [multiple arguments...]
+# put `-a` after all other parameters, followed by a `-` and then the arguments
+altr -w &lt;workflow_id&gt; -t &lt;trigger_id&gt; [-v key=value]… -a - [multiple arguments…]
 ```</string>
 	<key>uidata</key>
 	<dict>
