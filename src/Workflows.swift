@@ -216,6 +216,7 @@ class Workflow {
 			title: "[\(k.type)] \(k.keyword)",
 			subtitle: self.name + " - " + (k.title.isEmpty ? "[no title]" : k.title) + (k.script.isEmpty ? "" : " 📄"),
 			arg: "alfredpreferences:workflows>workflow>\(self.wfId)>\(k.id)",
+			autocomplete: "[\(k.type)] ",
 			quicklookurl: k.script,
 			icon: Item.Icon(path: icon)
 		)
