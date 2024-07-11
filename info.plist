@@ -392,7 +392,10 @@ echo -n $v</string>
 				<key>script</key>
 				<string>[ -f ./altr ] || { swiftc ./altr.swift || exit 1; }
 realpath /usr/local/bin/altr &amp;&amp; {echo -n 'altr already installed!'; exit 0}
-osascript -e 'tell application "Terminal" to do script "sudo ln -s '$PWD/altr' /usr/local/bin/"'</string>
+osascript &lt;&lt; EOF &gt; /dev/null
+activate application "Terminal"
+tell application "Terminal" to do script "sudo ln -s '$PWD/altr' /usr/local/bin/"
+EOF</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -606,8 +609,10 @@ altr -w &lt;workflow_id&gt; -t &lt;trigger_id&gt; [-v key=value]… -a - [multip
 			<string>keyword</string>
 		</dict>
 	</array>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
-	<string>1.0</string>
+	<string>1.0.3</string>
 	<key>webaddress</key>
 	<string>https://github.com/twio142/alfred-workflow-search</string>
 </dict>

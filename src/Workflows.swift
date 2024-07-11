@@ -259,8 +259,8 @@ class Workflow {
 			icon: Item.Icon(path: "\(self.wfDir)/icon.png" )
 		)
 		item.setMod(.cmd, Item.Mod(
-			subtitle: "Open workflow in Finder",
 			arg: self.wfDir,
+			subtitle: "Open workflow in Finder",
 			variables: [ "mod": "finder" ]
 		))
 		item.setMod(.shift, Item.Mod(
