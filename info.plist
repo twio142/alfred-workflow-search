@@ -391,7 +391,7 @@ echo -n $v</string>
 				<integer>102</integer>
 				<key>script</key>
 				<string>[ -f ./altr ] || { swiftc ./altr.swift || exit 1; }
-realpath /usr/local/bin/altr &amp;&amp; {echo -n 'altr already installed!'; exit 0}
+realpath /usr/local/bin/altr > /dev/null &amp;&amp; {echo -n 'altr already installed!'; exit 0}
 osascript &lt;&lt; EOF &gt; /dev/null
 activate application "Terminal"
 tell application "Terminal" to do script "sudo ln -s '$PWD/altr' /usr/local/bin/"
